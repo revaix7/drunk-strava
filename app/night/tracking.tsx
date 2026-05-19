@@ -13,11 +13,9 @@ import { startSway, stopSway } from '../../lib/sway';
 import { totalDistance } from '../../lib/geometry';
 import { saveNight } from '../../lib/db';
 import { colors, spacing } from '../../constants/theme';
-import { useRouter } from 'expo-router';
 import { Night } from '../../types';
 
-export default function TrackingScreen() {
-  const router = useRouter();
+export default function TrackingScreen({ navigation }: any) {
   const { isTracking, currentPoints, swayScore, startedAt } = useNightStore();
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
@@ -70,7 +68,7 @@ export default function TrackingScreen() {
       await saveNight(night);
       useNightStore.getState().reset();
 
-      router.push(`/night/${night.id}`);
+      navigation.navigate('NightDetail', { id: night.id });
     } catch (error) {
       console.error('Error stopping tracking:', error);
     }

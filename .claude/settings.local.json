@@ -8,7 +8,16 @@
       "Bash(npx tsc *)",
       "Bash(git add *)",
       "Bash(git commit -m 'Initialize Phase 1: Tracking core *)",
-      "Bash(git commit -m 'Fix Expo Router entry point and install missing navigation dependencies *)"
+      "Bash(git commit -m 'Fix Expo Router entry point and install missing navigation dependencies *)",
+      "Bash(git push *)",
+      "Bash(rm -rf .expo)",
+      "Bash(rm -rf node_modules/.cache)",
+      "Bash(npm uninstall *)",
+      "Read(//c/Users/xvrma/OneDrive/Bureau/Coding/Project/**)",
+      "Bash(rm -rf drunk-strava-new)",
+      "Bash(npx create-expo-app *)",
+      "Bash(git checkout *)",
+      "Bash(git commit -m 'Fix navigation: switch from expo-router to React Navigation *)"
     ]
   }
 }

@@ -8,13 +8,12 @@ import {
   ScrollView,
 } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
-import { useLocalSearchParams } from 'expo-router';
 import { getNight } from '../../lib/db';
 import { Night } from '../../types';
 import { colors, spacing } from '../../constants/theme';
 
-export default function NightDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+export default function NightDetailScreen({ route }: any) {
+  const { id } = route.params;
   const [night, setNight] = useState<Night | null>(null);
   const [loading, setLoading] = useState(true);
 

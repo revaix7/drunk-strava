@@ -8,14 +8,13 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import { useRouter, useFocusEffect } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 import { getNights } from '../../lib/db';
 import { Night } from '../../types';
 import NightCard from '../../components/NightCard';
 import { colors, spacing } from '../../constants/theme';
 
-export default function HomeScreen() {
-  const router = useRouter();
+export default function HomeScreen({ navigation }: any) {
   const [nights, setNights] = useState<Night[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +32,7 @@ export default function HomeScreen() {
   };
 
   const handleStartNight = () => {
-    router.push('/night/tracking');
+    navigation.navigate('Tracking');
   };
 
   return (
@@ -63,7 +62,12 @@ export default function HomeScreen() {
         <FlatList
           data={nights}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <NightCard night={item} />}
+          renderItem={({ item }) => (
+            <NightCard
+              night={item}
+              onPress={(id) => navigation.navigate('NightDetail', { id })}
+            />
+          )}
           contentContainerStyle={styles.listContent}
           scrollEnabled={true}
         />

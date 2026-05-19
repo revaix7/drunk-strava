@@ -1,16 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
 import { Night } from '../types';
 import { colors, spacing } from '../constants/theme';
 
 type NightCardProps = {
   night: Night;
+  onPress: (nightId: string) => void;
 };
 
-export default function NightCard({ night }: NightCardProps) {
-  const router = useRouter();
-
+export default function NightCard({ night, onPress }: NightCardProps) {
   const date = new Date(night.started_at);
   const formattedDate = date.toLocaleDateString('en-US', {
     weekday: 'short',
@@ -19,7 +17,7 @@ export default function NightCard({ night }: NightCardProps) {
   });
 
   const handlePress = () => {
-    router.push(`/night/${night.id}`);
+    onPress(night.id);
   };
 
   return (
