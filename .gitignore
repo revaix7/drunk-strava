@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# development logs (local reference only, not for GitHub)
+DEVELOPMENT_LOG.md

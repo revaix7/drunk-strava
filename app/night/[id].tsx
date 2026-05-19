@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   Text,
-  SafeAreaView,
   ActivityIndicator,
   ScrollView,
 } from 'react-native';
@@ -29,17 +28,17 @@ export default function NightDetailScreen({ route }: any) {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <ActivityIndicator size="large" color={colors.primary} />
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!night) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.errorText}>Night not found</Text>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -68,7 +67,7 @@ export default function NightDetailScreen({ route }: any) {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView>
         <MapView
           style={styles.map}
@@ -141,7 +140,7 @@ export default function NightDetailScreen({ route }: any) {
           )}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

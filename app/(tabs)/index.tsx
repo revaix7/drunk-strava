@@ -4,11 +4,9 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
 import { getNights } from '../../lib/db';
 import { Night } from '../../types';
 import NightCard from '../../components/NightCard';
@@ -18,11 +16,9 @@ export default function HomeScreen({ navigation }: any) {
   const [nights, setNights] = useState<Night[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      loadNights();
-    }, [])
-  );
+  useEffect(() => {
+    loadNights();
+  }, []);
 
   const loadNights = async () => {
     setLoading(true);
@@ -36,7 +32,7 @@ export default function HomeScreen({ navigation }: any) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Drunk Strava</Text>
         <Text style={styles.subtitle}>Track your night out</Text>
@@ -72,7 +68,7 @@ export default function HomeScreen({ navigation }: any) {
           scrollEnabled={true}
         />
       )}
-    </SafeAreaView>
+    </View>
   );
 }
 

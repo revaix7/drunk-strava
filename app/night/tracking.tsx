@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  SafeAreaView,
 } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 import { useNightStore } from '../../stores/nightStore';
@@ -90,7 +89,7 @@ export default function TrackingScreen({ navigation }: any) {
         };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <MapView
         style={styles.map}
         initialRegion={mapRegion}
@@ -144,7 +143,7 @@ export default function TrackingScreen({ navigation }: any) {
           </TouchableOpacity>
         )}
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
