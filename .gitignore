@@ -42,3 +42,4 @@ yarn-error.*
 
 # development logs (local reference only, not for GitHub)
 DEVELOPMENT_LOG.md
+PHASE_*.md
